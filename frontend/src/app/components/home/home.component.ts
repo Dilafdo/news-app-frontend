@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsService} from "../../services/news.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -19,9 +19,13 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  selectNews(id: Number){
+  selectNews(id: number){
     console.log('on clicked');
-    this.router.navigate(['/single']).then();
+    this.router.navigate(["/index", id]).then();
   }
 
+  selectCategory(value: string) {
+      console.log('category clicked');
+      this.router.navigate(["/index/category/domestic"]).then();
+  }
 }

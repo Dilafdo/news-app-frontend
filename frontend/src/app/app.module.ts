@@ -9,6 +9,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SingleComponent } from './components/single/single.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import {HttpClientModule} from "@angular/common/http";
     HeaderComponent,
     ProfileComponent,
     SingleComponent,
-    HomeComponent
+    HomeComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
