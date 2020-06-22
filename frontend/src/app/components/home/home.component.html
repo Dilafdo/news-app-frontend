@@ -10,7 +10,7 @@
                 <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
               </ul>
               <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-user-o"></i> My Profile</a></li>
+                <li><a routerLink="/profile"><i class="fa fa-user-o"></i> {{authState == false? 'LOGIN' : 'My Account'}}</a></li>
               </ul>
             </div>
           </div>
@@ -38,7 +38,7 @@
                       <input class="input"  placeholder="Search here" style="width: 500px;">
                       <button class="search-btn">Search</button>
                     </form>
-                    <button (click)="selectCategory('internaional')">International</button>
+                    <button (click)="selectCategory('international')">International</button>
                     <button (click)="selectCategory('domestic')">Domestic</button>
                     <button (click)="selectCategory('politics')">Politics</button>
                     <button (click)="selectCategory('sport')">Sport</button>

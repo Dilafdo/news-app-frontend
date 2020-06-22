@@ -21,9 +21,9 @@ export class NewsService {
     return this.http.get<ProductModelServer>(this.SERVER_URL+'/index/'+id);
   }
 
-  getCategory(category: string): Observable<ProductModelServer>{
+  getCategory(value: string) {
     console.log("hello 2");
-    return this.http.get<ProductModelServer>(this.SERVER_URL+'/index/category/domestic');
+    return this.http.get(this.SERVER_URL+'/index/category/'+value);
   }
 
 

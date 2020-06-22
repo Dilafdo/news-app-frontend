@@ -9,14 +9,26 @@ import {NewsService} from "../../services/news.service";
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  id: number;
-  newsList1: any[];
+  value: string;
+  newsList: any;
   category: string;
   header: string;
   constructor(private newsService: NewsService,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap
+      .pipe(
+        map((param: ParamMap) => {
+          // @ts-ignore
+          return param.params.value;
+        })
+      )
+      .subscribe(catId => {
+        this.value = catId;
+        this.newsService.getCategory(this.value).subscribe(news =>
+          this.newsList = news);
+        });
 
   }
 

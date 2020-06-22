@@ -4,6 +4,8 @@ import {HomeComponent} from "./components/home/home.component";
 import {SingleComponent} from "./components/single/single.component";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {CategoryComponent} from "./components/category/category.component";
+import {LoginComponent} from "./components/login/login.component";
+import {ProfileGuard} from "./guard/profile.guard";
 
 
 const routes: Routes = [
@@ -14,10 +16,13 @@ const routes: Routes = [
     path: 'index/:id', component: SingleComponent
   },
   {
-    path: 'profile', component: ProfileComponent
+    path: 'profile', component: ProfileComponent, canActivate: [ProfileGuard]
   },
   {
-    path: 'index/category/domestic', component: CategoryComponent
+    path: 'index/category/:value', component: CategoryComponent
+  },
+  {
+    path: 'login', component: LoginComponent
   }
 ];
 
