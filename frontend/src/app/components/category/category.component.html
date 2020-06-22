@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <header>
-    <h1>Header</h1>
-  </header>
   <body>
-    <h2>hello</h2>
 
     <div class="col-ld-12">
-      <div class="col-md-12 col-sm-6" *ngFor="let n of newsList">
-        <div class="card-header" style="cursor: pointer" >
+      <div class="col-md-12 col-sm-6" *ngFor="let n of newsList | paginate: config">
+        <div class="card-header" style="cursor: pointer" (click)="selectNews(n.id)" >
           <div class="card-title">
             <p>{{n.header | titlecase}}</p>
           </div>
         </div>
       </div>
     </div>
+
+    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
 
   </body>
 </html>

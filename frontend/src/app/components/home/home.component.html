@@ -1,62 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <body>
-        <!-- HEADER -->
-        <header>
-          <!-- TOP HEADER -->
-          <div id="top-header">
-            <div class="container">
-              <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-envelope-o"></i> email@email.com</a></li>
-              </ul>
-              <ul class="header-links pull-right">
-                <li><a routerLink="/profile"><i class="fa fa-user-o"></i> {{authState == false? 'LOGIN' : 'My Account'}}</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- /TOP HEADER -->
-
-          <!-- MAIN HEADER -->
-          <div id="header">
-            <!-- container -->
-            <div class="container">
-              <!-- row -->
-              <div class="row">
-
-                <!-- SEARCH BAR -->
-                <div class="media-middle">
-                  <div class="header-search">
-                    <form>
-
-                      <!--                      <select class="input-select" (click)="selectCategory($event)">-->
-                      <!--                        <option value='all'>All Categories </option>-->
-                      <!--                        <option value='international'>International</option>-->
-                      <!--                        <option value='domestic'>Domestic</option>-->
-                      <!--                        <option value='politics'>Politics</option>-->
-                      <!--                        <option value='sport'>Sport</option>-->
-                      <!--                      </select>-->
-                      <input class="input"  placeholder="Search here" style="width: 500px;">
-                      <button class="search-btn">Search</button>
-                    </form>
-                    <button (click)="selectCategory('international')">International</button>
-                    <button (click)="selectCategory('domestic')">Domestic</button>
-                    <button (click)="selectCategory('politics')">Politics</button>
-                    <button (click)="selectCategory('sport')">Sport</button>
-                  </div>
-                </div>
-                <!-- /SEARCH BAR -->
-
-              </div>
-              <!-- row -->
-            </div>
-            <!-- container -->
-          </div>
-          <!-- /MAIN HEADER -->
-        </header>
-        <!-- /HEADER -->
 
         <div class="col-ld-12">
-            <div class="col-md-12 col-sm-6" *ngFor="let n of newsList">
+            <div class="col-md-12 col-sm-6" *ngFor="let n of newsList | paginate: config">
 <!--                <img [src]="n.image" alt="{{n.header}}" width="200px" class="card-img-top" style="cursor: pointer;">-->
                 <div class="card-header" style="cursor: pointer" (click)="selectNews(n.id)">
                   <div class="card-title">
@@ -65,6 +12,8 @@
                 </div>
             </div>
         </div>
+
+      <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
 
     </body>
 </html>

@@ -12,17 +12,25 @@ export class HomeComponent implements OnInit {
 
   newsList: any[] = [];
   authState: boolean;
+  config: any;
 
   constructor(private newsService: NewsService,
               private router: Router,
-              private userService: UserService) { }
+              private route: ActivatedRoute) {
+                  this.config = {currentPage: 1,
+                                  itemsPerPage: 10,
+                                  totalItems:0
+                  };
+
+                  route.queryParams.subscribe(params => {
+                    this.config.currentPage = params['page']?params['page']:1});
+  }
 
   ngOnInit(): void {
     this.newsService.getAllItems().subscribe((news: {newsList: any[]}) => {
       this.newsList = news.newsList;
     });
 
-    this.userService.authState$.subscribe(authState => this.authState = authState);
   }
 
   selectNews(id: number){
@@ -30,8 +38,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/index", id]).then();
   }
 
-  selectCategory(value: string) {
-      console.log('category clicked');
-      this.router.navigate(["/index/category", value]).then();
+  pageChange(newPage: number){
+    this.router.navigate([''], {queryParams: {page: newPage}});
   }
 }

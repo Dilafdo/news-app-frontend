@@ -14,6 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import {GoogleLoginProvider } from 'angularx-social-login';
 import {FormsModule} from "@angular/forms";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {FormsModule} from "@angular/forms";
     AppRoutingModule,
     HttpClientModule,
     SocialLoginModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     {
