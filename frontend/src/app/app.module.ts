@@ -15,6 +15,7 @@ import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-logi
 import {GoogleLoginProvider } from 'angularx-social-login';
 import {FormsModule} from "@angular/forms";
 import {NgxPaginationModule} from "ngx-pagination";
+import { SearchComponent } from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     SingleComponent,
     HomeComponent,
     CategoryComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

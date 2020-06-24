@@ -22,8 +22,8 @@ export class ProfileComponent implements OnInit {
         map((user: SocialUser | ResponseModel) => {
           if (user instanceof SocialUser) {
             return {
-              ...user,
               email: 'mdilanfdo1995@gmail.com',
+              ...user,
 
             };
           } else {

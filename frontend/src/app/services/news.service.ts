@@ -22,8 +22,11 @@ export class NewsService {
   }
 
   getCategory(value: string) {
-    console.log("hello 2");
     return this.http.get(this.SERVER_URL+'/index/category/'+value);
+  }
+
+  getQuery(query: string) {
+    return this.http.get(this.SERVER_URL+'/search/' + query);
   }
 
 

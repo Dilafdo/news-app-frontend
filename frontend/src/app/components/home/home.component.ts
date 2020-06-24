@@ -11,7 +11,6 @@ import {UserService} from "../../services/user.service";
 export class HomeComponent implements OnInit {
 
   newsList: any[] = [];
-  authState: boolean;
   config: any;
 
   constructor(private newsService: NewsService,
@@ -34,7 +33,6 @@ export class HomeComponent implements OnInit {
   }
 
   selectNews(id: number){
-    console.log('on clicked');
     this.router.navigate(["/index", id]).then();
   }
 

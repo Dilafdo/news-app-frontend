@@ -23,10 +23,11 @@
         <!-- SEARCH BAR -->
         <div class="media-middle">
           <div class="header-search">
-            <form>
-              <input class="input"  placeholder="Search here" style="width: 500px;">
-              <button class="search-btn">Search</button>
-            </form>
+            <div class="row-cols-1">
+              <input type="text" class="form-control" id="name" required [(ngModel)]="name" placeholder="Search here..."/>
+              <button class="search-btn" (click)="onSearch()" class="search-btn">Search</button>
+            </div>
+            <h1></h1>
             <button (click)="selectCategory('all')">All Category</button>
             <button (click)="selectCategory('international')">International</button>
             <button (click)="selectCategory('domestic')">Domestic</button>
