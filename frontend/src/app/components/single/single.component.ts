@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NewsService} from "../../services/news.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {map} from "rxjs/operators";
+import {NewsService} from '../../services/news.service';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-single',

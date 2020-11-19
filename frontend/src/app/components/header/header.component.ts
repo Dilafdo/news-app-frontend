@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -26,15 +26,15 @@ export class HeaderComponent implements OnInit {
   }
 
   selectCategory(value: string) {
-    if(value == 'all'){
-      console.log("all");
-      this.router.navigate([""]).then();
+    if (value === 'all'){
+      console.log('all');
+      this.router.navigate(['']).then();
     }else{
-      this.router.navigate(["/index/category", value]).then();
+      this.router.navigate(['/index/category', value]).then();
     }
   }
 
   onSearch() {
-    this.router.navigate(["/index/search", this.name]).then();
+    this.router.navigate(['/index/search', this.name]).then();
   }
 }

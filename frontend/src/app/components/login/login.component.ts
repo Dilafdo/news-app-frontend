@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {SocialAuthService} from "angularx-social-login";
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
+import {NgForm} from '@angular/forms';
+import {SocialAuthService} from 'angularx-social-login';
+import {ActivatedRoute, Router} from '@angular/router';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.authState$.subscribe(authState => {
-      if(authState){
-        this.router.navigateByUrl(this.route.snapshot.queryParams['returnUrl'] || '');
+      if (authState){
+        this.router.navigateByUrl(this.route.snapshot.queryParams.returnUrl || '');
       }
       else{
         this.router.navigateByUrl('/login');

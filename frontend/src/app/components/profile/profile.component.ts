@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
 import {map} from 'rxjs/operators';
-import {ResponseModel, UserService} from "../../services/user.service";
-import {SocialAuthService, SocialUser} from "angularx-social-login";
+import {ResponseModel, UserService} from '../../services/user.service';
+import {SocialAuthService, SocialUser} from 'angularx-social-login';
 
 @Component({
   selector: 'app-profile',
@@ -13,8 +12,7 @@ export class ProfileComponent implements OnInit {
   myUser: any;
 
   constructor(private socialAuthService: SocialAuthService,
-              private userService: UserService,
-              private router: Router) { }
+              private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.userData$

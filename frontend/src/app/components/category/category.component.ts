@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {map} from "rxjs/operators";
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {NewsService} from "../../services/news.service";
+import {map} from 'rxjs/operators';
+import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {NewsService} from '../../services/news.service';
 
 @Component({
   selector: 'app-category',
@@ -19,11 +19,11 @@ export class CategoryComponent implements OnInit {
               private router: Router) {
                 this.config = {currentPage: 1,
                   itemsPerPage: 10,
-                  totalItems:0
+                  totalItems: 0
                 };
 
                 route.queryParams.subscribe(params => {
-                  this.config.currentPage = params['page']?params['page']:1});
+                  this.config.currentPage = params.page ? params.page : 1; });
   }
 
   ngOnInit(): void {
@@ -44,10 +44,10 @@ export class CategoryComponent implements OnInit {
 
   selectNews(id: any) {
     console.log('on clicked');
-    this.router.navigate(["/index", id]).then();
+    this.router.navigate(['/index', id]).then();
   }
 
   pageChange(newPage: number){
-    this.router.navigate(['/index/category/'+this.value], {queryParams: {page: newPage}});
+    this.router.navigate(['/index/category/' + this.value], {queryParams: {page: newPage}});
   }
 }

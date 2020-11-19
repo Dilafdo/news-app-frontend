@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {NewsService} from "../../services/news.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../../services/user.service";
+import {Component, OnInit} from '@angular/core';
+import {NewsService} from '../../services/news.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,11 +17,11 @@ export class HomeComponent implements OnInit {
               private route: ActivatedRoute) {
                   this.config = {currentPage: 1,
                                   itemsPerPage: 10,
-                                  totalItems:0
+                                  totalItems: 0
                   };
 
                   route.queryParams.subscribe(params => {
-                    this.config.currentPage = params['page']?params['page']:1});
+                    this.config.currentPage = params.page ? params.page : 1; });
   }
 
   ngOnInit(): void {
@@ -33,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   selectNews(id: number){
-    this.router.navigate(["/index", id]).then();
+    this.router.navigate(['/index', id]).then();
   }
 
   pageChange(newPage: number){
